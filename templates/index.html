@@ -9,14 +9,20 @@
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/logo.png') }}">
 </head>
 
-<body>
+<body id="top">
     <nav class="navbar">
         <div class="logo">
             <img src="{{ url_for('static', filename='img/logo.png') }}" alt="SnapClass Logo" style="height: 32px;">
             <div class="logo-text">SnapClass</div>
         </div>
-        <div class="nav-links">
-            <a href="#">Home</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation"
+            aria-label="Open navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links" id="primary-navigation">
+            <a href="#top">Home</a>
             <a href="#features">Features</a>
             <a href="#journey">Journey</a>
             <a href="#tech">Tech Stack</a>
@@ -85,7 +91,7 @@
                         synced across all your devices.</p>
                 </div>
                 <div class="flow-image">
-                    <img src="{{ url_for('static', filename='img/demo2/IMG_20260514_223305.jpg.jpeg') }}"
+                    <img loading="lazy" src="{{ url_for('static', filename='img/demo2/IMG_20260514_223305.jpg.jpeg') }}"
                         alt="Login Portal">
                 </div>
             </div>
@@ -98,7 +104,7 @@
                         stream.</p>
                 </div>
                 <div class="flow-image">
-                    <img src="{{ url_for('static', filename='img/demo2/IMG_20260514_223342.jpg.jpeg') }}"
+                    <img loading="lazy" src="{{ url_for('static', filename='img/demo2/IMG_20260514_223342.jpg.jpeg') }}"
                         alt="Teacher Dashboard">
                 </div>
             </div>
@@ -111,7 +117,7 @@
                         start tracking.</p>
                 </div>
                 <div class="flow-image">
-                    <img src="{{ url_for('static', filename='img/demo2/IMG_20260514_223410.jpg.jpeg') }}"
+                    <img loading="lazy" src="{{ url_for('static', filename='img/demo2/IMG_20260514_223410.jpg.jpeg') }}"
                         alt="Create Course">
                 </div>
             </div>
@@ -124,7 +130,7 @@
                         single class photo in milliseconds.</p>
                 </div>
                 <div class="flow-image">
-                    <img src="{{ url_for('static', filename='img/demo2/IMG_20260514_223513.jpg.jpeg') }}"
+                    <img loading="lazy" src="{{ url_for('static', filename='img/demo2/IMG_20260514_223513.jpg.jpeg') }}"
                         alt="FaceID Attendance">
                 </div>
             </div>
@@ -137,7 +143,8 @@
                         their unique voice signatures.</p>
                 </div>
                 <div class="flow-image">
-                    <img src="{{ url_for('static', filename='img/demo2/snap-teacher-flow-5.1-voice-attendance.png') }}"
+                    <img loading="lazy"
+                        src="{{ url_for('static', filename='img/demo2/snap-teacher-flow-5.1-voice-attendance.png') }}"
                         alt="Voice Attendance">
                 </div>
             </div>
@@ -150,7 +157,7 @@
                         long-term attendance trends.</p>
                 </div>
                 <div class="flow-image">
-                    <img src="{{ url_for('static', filename='img/demo2/IMG_20260514_223610.jpg.jpeg') }}"
+                    <img loading="lazy" src="{{ url_for('static', filename='img/demo2/IMG_20260514_223610.jpg.jpeg') }}"
                         alt="Records Management">
                 </div>
             </div>
@@ -227,7 +234,7 @@
                         teachers. No tedious sign-up forms.</p>
                 </div>
                 <div class="flow-image">
-                    <img src="{{ url_for('static', filename='img/demo2/IMG_20260514_223439.jpg.jpeg') }}"
+                    <img loading="lazy" src="{{ url_for('static', filename='img/demo2/IMG_20260514_223439.jpg.jpeg') }}"
                         alt="Student Enrollment">
                 </div>
             </div>
@@ -240,7 +247,7 @@
                         all future class sessions.</p>
                 </div>
                 <div class="flow-image">
-                    <img src="{{ url_for('static', filename='img/demo2/IMG_20260514_223134.jpg.jpeg') }}"
+                    <img loading="lazy" src="{{ url_for('static', filename='img/demo2/IMG_20260514_223134.jpg.jpeg') }}"
                         alt="Biometric Registration">
                 </div>
             </div>
@@ -253,7 +260,7 @@
                         receive real-time updates.</p>
                 </div>
                 <div class="flow-image">
-                    <img src="{{ url_for('static', filename='img/demo2/IMG_20260514_223218.jpg.jpeg') }}"
+                    <img loading="lazy" src="{{ url_for('static', filename='img/demo2/IMG_20260514_223218.jpg.jpeg') }}"
                         alt="Student Dashboard">
                 </div>
             </div>

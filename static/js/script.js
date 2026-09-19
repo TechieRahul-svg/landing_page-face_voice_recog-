@@ -1,10 +1,26 @@
 // Enhanced interactions for SnapClass
 document.addEventListener('DOMContentLoaded', () => {
-    // Scroll Reveal for Feature Cards and Flow Steps
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    navToggle?.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('is-open');
+        navToggle.setAttribute('aria-expanded', String(isOpen));
+        navToggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+    });
+
+    navLinks?.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('is-open');
+            navToggle?.setAttribute('aria-expanded', 'false');
+            navToggle?.setAttribute('aria-label', 'Open navigation');
+        });
+    });
+
+    const revealElements = document.querySelectorAll('.feature-card, .flow-step');
+    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        return;
+    }
 
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -13,26 +29,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 revealObserver.unobserve(entry.target);
             }
         });
-    }, observerOptions);
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-    // Apply reveal styles to elements
-    const revealElements = document.querySelectorAll('.feature-card, .flow-step');
-    revealElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(40px)';
-        el.style.transition = 'all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1)';
-        revealObserver.observe(el);
+    revealElements.forEach(element => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(40px)';
+        element.style.transition = 'all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1)';
+        revealObserver.observe(element);
     });
-
-    // Handle CSS for revealed state
-    const styleTag = document.createElement('style');
-    styleTag.textContent = `
-        .revealed {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-        }
-    `;
-    document.head.appendChild(styleTag);
-
-    console.log('SnapClass Premium Landing Page Active');
 });

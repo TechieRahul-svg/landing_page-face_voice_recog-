@@ -90,6 +90,29 @@ h4 {
     color: #ffffff;
 }
 
+.nav-toggle {
+    display: none;
+    border: 0;
+    background: transparent;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    margin: 5px 0;
+    background: currentColor;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--secondary);
+    outline-offset: 4px;
+}
+
 .btn-pill {
     background: linear-gradient(135deg, #7C3AED 0%, #6366F1 100%);
     color: #ffffff;
@@ -126,7 +149,7 @@ h4 {
 .hero::before {
     content: '';
     position: absolute;
-    width: 600px;
+    width: min(600px, 100vw);
     height: 600px;
     background: radial-gradient(circle, rgba(124, 58, 237, 0.15) 0%, transparent 70%);
     top: 50%;
@@ -647,6 +670,41 @@ h4 {
 
     .nav-links {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 20px;
+        right: 20px;
+        flex-direction: column;
+        gap: 0;
+        padding: 8px;
+        background: rgba(11, 17, 32, 0.98);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-links.is-open {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 12px 14px;
+    }
+
+    .nav-toggle {
+        display: block;
+        order: 2;
+        margin-left: auto;
+        margin-right: 8px;
+    }
+
+    .nav-cta {
+        order: 3;
+    }
+
+    .btn-pill {
+        padding: 10px 14px;
+        font-size: 0.85rem;
     }
 
     .hero {
@@ -788,5 +846,17 @@ h4 {
 
     .hero p {
         font-size: 0.95rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
     }
 }
